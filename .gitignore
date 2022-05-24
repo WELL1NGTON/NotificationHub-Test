@@ -452,3 +452,4 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+/src/Notification.Mobile/Config.local_secrets.cs
