@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "65cd0942-bfd1-4e65-9e44-f64dfa73f215",
+		"name": "NotificationHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13957667"
+	},
+	"item": [
+		{
+			"name": "Send Notification",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{apikey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Message from Postman!\",\r\n    \"action\": \"action_b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{server}}/api/Notifications/requests",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"Notifications",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deregister App",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{apikey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{server}}/api/notifications/installations/b6bd71ce-a5ce-47f3-9edb-220dacab35a5",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"notifications",
+						"installations",
+						"b6bd71ce-a5ce-47f3-9edb-220dacab35a5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register App",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{apikey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{server}}/api/notifications/installations",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"notifications",
+						"installations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

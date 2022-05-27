@@ -15,10 +15,12 @@ namespace Notification.Api.Controllers;
 public class NotificationsController : ControllerBase
 {
     readonly INotificationService _notificationService;
+    readonly ILogger _logger;
 
-    public NotificationsController(INotificationService notificationService)
+    public NotificationsController(INotificationService notificationService, ILogger<NotificationsController> logger)
     {
         _notificationService = notificationService;
+        _logger = logger;
     }
 
     [HttpPut]
@@ -70,7 +72,10 @@ public class NotificationsController : ControllerBase
             .RequestNotificationAsync(notificationRequest, HttpContext.RequestAborted);
 
         if (!success)
+        {
+            _logger.LogError($"Failed to send notification request: {notificationRequest}");
             return new UnprocessableEntityResult();
+        }
 
         return new OkResult();
     }

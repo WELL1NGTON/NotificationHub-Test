@@ -46,24 +46,6 @@ namespace Notification.Mobile.Droid
                 FirebaseInstanceId.GetInstance(Firebase.FirebaseApp.Instance)
                    .GetInstanceId()
                    .AddOnSuccessListener(this);
-
-                // var test4 = Firebase.FirebaseApp.InitializeApp(this);
-                // var test3 = Firebase.FirebaseApp.Instance;
-                // var test1 = FirebaseInstallations.Instance;
-                // var test2 = FirebaseMessaging.Instance;
-
-                // FirebaseMessaging.Instance.GetToken().AddOnSuccessListener(this);
-
-                // //Firebase.FirebaseApp.InitializeApp(BaseContext);
-
-                // //var firebaseAppInstance = Firebase.FirebaseApp.Instance;
-
-                // //var firebaseAppId = FirebaseInstallations.GetInstance(firebaseAppInstance).GetId();
-
-                // //FirebaseInstallations
-                // //    .GetInstance(Firebase.FirebaseApp.Instance)
-                // //    .GetId()
-                // //    .AddOnSuccessListener(this);
             }
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
