@@ -8,17 +8,17 @@ using Android.Runtime;
 
 using Firebase.Iid;
 
-using Notification.Mobile.Droid.Services;
 using Notification.Mobile.Servicos;
+using Notification.Mobile.Droid.Services;
 
 namespace Notification.Mobile.Droid
 {
     [Activity(Label = "Notification.Mobile",
-        Icon = "@mipmap/icon",
         LaunchMode = LaunchMode.SingleTop,
+        Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener
     {
         IPushDemoNotificationActionService _notificationActionService;
@@ -40,11 +40,30 @@ namespace Notification.Mobile.Droid
 
             Bootstrap.Begin(() => new DeviceInstallationService());
 
+
             if (DeviceInstallationService.NotificationsSupported)
             {
                 FirebaseInstanceId.GetInstance(Firebase.FirebaseApp.Instance)
-                    .GetInstanceId()
-                    .AddOnSuccessListener(this);
+                   .GetInstanceId()
+                   .AddOnSuccessListener(this);
+
+                // var test4 = Firebase.FirebaseApp.InitializeApp(this);
+                // var test3 = Firebase.FirebaseApp.Instance;
+                // var test1 = FirebaseInstallations.Instance;
+                // var test2 = FirebaseMessaging.Instance;
+
+                // FirebaseMessaging.Instance.GetToken().AddOnSuccessListener(this);
+
+                // //Firebase.FirebaseApp.InitializeApp(BaseContext);
+
+                // //var firebaseAppInstance = Firebase.FirebaseApp.Instance;
+
+                // //var firebaseAppId = FirebaseInstallations.GetInstance(firebaseAppInstance).GetId();
+
+                // //FirebaseInstallations
+                // //    .GetInstance(Firebase.FirebaseApp.Instance)
+                // //    .GetId()
+                // //    .AddOnSuccessListener(this);
             }
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

@@ -9,4 +9,6 @@
     ],
     "vssolution.solutionExplorerIcons": "mix",
     "debug.internalConsoleOptions": "neverOpen",
+    "appService.defaultWebAppToDeploy": "/subscriptions/fa6c01ea-d629-41f5-9b7c-daa6f9400a0b/resourceGroups/appsvc_windows_centralus/subscriptions/fa6c01ea-d629-41f5-9b7c-daa6f9400a0b/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/NotificationHubApiTest2022",
+    "appService.deploySubpath": "src\\Notification.Api\\publish",
 }

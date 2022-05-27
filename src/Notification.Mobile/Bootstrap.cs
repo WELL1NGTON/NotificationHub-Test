@@ -16,7 +16,7 @@ namespace Notification.Mobile
             ServiceContainer.Register<INotificationRegistrationService>(()
                 => new NotificationRegistrationService(
                     Config.BackendServiceEndpoint,
-                    Config.ApiKey));
+                    Config.ApiKey));          
         }
     }
 }
