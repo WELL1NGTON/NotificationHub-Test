@@ -23,6 +23,15 @@ public class NotificationsController : ControllerBase
         _logger = logger;
     }
 
+    [HttpGet]
+    [Route("installations")]
+    public async Task<IActionResult> GetAll()
+    {
+        var registrations = await _notificationService.GetAll();
+
+        return Ok(registrations);
+    }
+
     [HttpPut]
     [Route("installations")]
     [ProducesResponseType((int)HttpStatusCode.OK)]

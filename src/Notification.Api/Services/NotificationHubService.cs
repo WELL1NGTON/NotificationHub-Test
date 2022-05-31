@@ -25,6 +25,18 @@ public class NotificationHubService : INotificationService
             };
     }
 
+    public async Task<IEnumerable<RegistrationDescription>> GetAll()
+    {
+        var registrations = await _hub.GetAllRegistrationsAsync(500);
+
+        foreach (var registration in registrations)
+        {
+            _logger.LogInformation($"{registration.RegistrationId} - {registration.Tags}");
+        }
+
+        return registrations.ToList();
+    }
+
     public async Task<bool> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation, CancellationToken token)
     {
         if (string.IsNullOrWhiteSpace(deviceInstallation?.InstallationId) ||
