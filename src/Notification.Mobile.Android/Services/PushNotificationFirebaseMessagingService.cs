@@ -8,7 +8,7 @@ using Notification.Mobile.Servicos;
 
 namespace Notification.Mobile.Droid.Services
 {
-    [Service]
+    [Service(Exported = true)]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     public class PushNotificationFirebaseMessagingService : FirebaseMessagingService
     {
