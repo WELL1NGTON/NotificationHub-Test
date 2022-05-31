@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"text\": \"Message from Postman!\",\r\n    \"action\": \"action_b\"\r\n}",
+					"raw": "{\r\n    \"text\": \"Message from Postman!\",\r\n    \"action\": \"action_a\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,6 +115,41 @@
 						}
 					}
 				},
+				"url": {
+					"raw": "{{protocol}}://{{server}}/api/notifications/installations",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"notifications",
+						"installations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Apps",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{apikey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
 				"url": {
 					"raw": "{{protocol}}://{{server}}/api/notifications/installations",
 					"protocol": "{{protocol}}",
