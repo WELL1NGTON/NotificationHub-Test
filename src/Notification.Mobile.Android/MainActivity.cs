@@ -6,10 +6,9 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 
-using Firebase.Iid;
-
 using Notification.Mobile.Servicos;
 using Notification.Mobile.Droid.Services;
+using Firebase.Messaging;
 
 namespace Notification.Mobile.Droid
 {
@@ -43,9 +42,10 @@ namespace Notification.Mobile.Droid
 
             if (DeviceInstallationService.NotificationsSupported)
             {
-                FirebaseInstanceId.GetInstance(Firebase.FirebaseApp.Instance)
-                   .GetInstanceId()
-                   .AddOnSuccessListener(this);
+                FirebaseMessaging
+                    .Instance
+                    .GetToken()
+                    .AddOnSuccessListener(this);
             }
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -62,8 +62,7 @@ namespace Notification.Mobile.Droid
         }
 
         public void OnSuccess(Java.Lang.Object result)
-        => DeviceInstallationService.Token =
-            result.Class.GetMethod("getToken").Invoke(result).ToString();
+        => DeviceInstallationService.Token = result.ToString();
 
         void ProcessNotificationActions(Intent intent)
         {
